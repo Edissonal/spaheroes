@@ -11,24 +11,23 @@ const navigate = useNavigate();
 const location = useLocation();
 
 
-const {q} = queryString.parse(location.search);
+const {q = ''} = queryString.parse(location.search);
 console.log(q)
 const heroes = GetHeroesByname(q)
 console.log(heroes);
 
 
-  const {searchText,onInputChange} = useForm({
-    searchText:q
-  });
-
- const  onSearchSubmit = (event) =>{
-    event.preventDefault();
-  //  if(searchText.trim().length <= 1) return;
-    navigate(`?q=${searchText}`)
-  }
  const showSearch =(q.length === 0);
  const showError =(q.length > 0) && heroes.length === 0;
+ const {searchText,onInputChange} = useForm({
+  searchText:q
+});
 
+const  onSearchSubmit = (event) =>{
+  event.preventDefault();
+//  if(searchText.trim().length <= 1) return;
+  navigate(`?q=${searchText}`)
+}
   
   return (
     <>

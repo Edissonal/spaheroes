@@ -22,7 +22,7 @@ export const AuthProvider = ({children}) => {
   
   const login = (name='')=>{
     const user={id:'ABC',name}
-    const action={type:types.logout,payload:user}
+    const action={type:types.login,payload:user}
     localStorage.setItem('user',JSON.stringify(user))
     dispatch(action)
     
@@ -30,7 +30,7 @@ export const AuthProvider = ({children}) => {
 
   const logout =()=>{
     localStorage.removeItem('user');
-    const action={type:logout}
+    const action={type:types.logout}
     dispatch(action);
   }
   
